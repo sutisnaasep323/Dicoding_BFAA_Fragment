@@ -2,6 +2,7 @@ package com.example.myflexiblefragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.fragment.app. *
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,14 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-
+        if (v?.id == R.id.btn_category){
+            val mCategoryFragment = CategoryFragment()
+            val mFragmentManager = parentFragmentManager // menggunakan ini karena sebelumnya sudah usang ketika api 28
+            mFragmentManager.beginTransaction().apply {
+                replace(R.id.frame_container, mCategoryFragment, CategoryFragment::class.java.simpleName)
+                addToBackStack(null)
+                commit()
+            }
+        }
     }
 }
