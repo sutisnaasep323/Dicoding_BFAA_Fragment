@@ -6,17 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.FragmentManager
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [CategoryFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CategoryFragment : Fragment(), View.OnClickListener {
 
     override fun onCreateView(
@@ -35,8 +26,24 @@ class CategoryFragment : Fragment(), View.OnClickListener {
         btnDetailCategory.setOnClickListener(this)
     }
 
-    override fun onClick(v: View?) {
-        if (v?.id == R.id.btn_detail_category){
+    override fun onClick(v: View) {
+        if (v.id == R.id.btn_detail_category){
+            val mDetailCategoryFragment = DetailCategoryFragment()
+
+            val mBundle = Bundle()
+            mBundle.putString(DetailCategoryFragment.EXTRA_NAME, "Life Style")
+            val description = "Kategori ini akan berisi produk-produk lifestyle" // set data deskripsi menggunakan metode setter. disini untuk mengirimkan parameter/variabel dari satu fragment ke fragment lain
+
+            mDetailCategoryFragment.arguments = mBundle // mengirimkan data argument/name
+            mDetailCategoryFragment.description = description  //mengirimkan data deskripsi
+
+             val mFragmentManager = fragmentManager
+//            val mFragmentManager = parentFragmentManager // menggunakan ini karena sebelumnya sudah usang ketika api 28
+            mFragmentManager?.beginTransaction()?.apply {
+                replace(R.id.frame_container, mDetailCategoryFragment, DetailCategoryFragment::class.java.simpleName)
+                addToBackStack(null)
+                commit()
+            }
 
         }
     }

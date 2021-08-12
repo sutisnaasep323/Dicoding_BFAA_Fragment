@@ -27,8 +27,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         if (v?.id == R.id.btn_category){
             val mCategoryFragment = CategoryFragment()
-            val mFragmentManager = parentFragmentManager // menggunakan ini karena sebelumnya sudah usang ketika api 28
-            mFragmentManager.beginTransaction().apply {
+            val mFragmentManager = fragmentManager // ini usang bisa menggunakan parentFragmentManager
+            mFragmentManager?.beginTransaction()?.apply {
                 replace(R.id.frame_container, mCategoryFragment, CategoryFragment::class.java.simpleName)
                 addToBackStack(null)
                 commit()
