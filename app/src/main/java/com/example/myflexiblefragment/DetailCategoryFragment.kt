@@ -31,6 +31,9 @@ class DetailCategoryFragment : Fragment() {
         tvCategoryDescription = view.findViewById(R.id.tv_category_description)
         btnProfile = view.findViewById(R.id.btn_profile)
         btnShowDialog = view.findViewById(R.id.btn_dialog)
+//        btnProfile.setOnClickListener(this)
+//        btnShowDialog = view.findViewById(R.id.btn_show_dialog)
+//        btnShowDialog.setOnClickListener(this)
     }
 
     @Suppress("DEPRECATION")
