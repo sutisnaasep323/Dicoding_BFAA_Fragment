@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="@string/question_coach" />
+
     <RadioGroup
         android:id="@+id/rg_options"
         android:layout_width="match_parent"
@@ -67,7 +68,7 @@
             />
 
         <Button
-            android:id="@+id/btn_chose"
+            android:id="@+id/btn_choose"
             style="?buttonBarButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
